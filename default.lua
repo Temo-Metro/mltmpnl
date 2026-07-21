@@ -2085,8 +2085,10 @@ local function Close()
 		GlitchPetsCharListener = nil
 	end
 
-	CreateNotification("Your character will reset shortly", "Warning", 5)
+	CreateNotification("Your character will reset shortly (to fully shutdown)", "Warning", 2)
+	task.wait(2)
 	Humanoid.Health = 0
+	Tempanel:Destroy()
 end
 
 --// CloseButton
