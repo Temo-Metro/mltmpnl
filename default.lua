@@ -2275,7 +2275,6 @@ function Load()
 			Settings[Key] = Value
 		end
 	end
-	ObtainOptValueInstance("02_Keep Tempanel").Value = Settings["KeepTempanel"]
 end
 
 function ChangeSetting(Key, Value)
@@ -2433,6 +2432,9 @@ for _, OptInTab in pairs(OpenedTabFrameCompFolder:GetDescendants()) do
 	end
 
 end
+
+----------------------------------------// Loading settings \\----------------------------------------
+ObtainOptValueInstance("02_Keep Tempanel").Value = Settings["KeepTempanel"]
 
 ----------------------------------------// Notifications \\----------------------------------------
 CreateNotification("Welcome, "..LocalPlayer.Name.."!", "Info", 3)
