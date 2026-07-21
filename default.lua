@@ -2062,7 +2062,6 @@ local function Close()
 	end
 
 	if FarmDurabilityLastPos then
-		FarmDurabilityLastPos:Disconnect()
 		FarmDurabilityLastPos = nil
 	end
 
