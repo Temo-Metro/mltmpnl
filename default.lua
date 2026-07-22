@@ -1606,7 +1606,7 @@ function ToggleGlitchPets(toggle : boolean)
 				return
 			end
 
-			CreateNotification("Glitch can sometimes refuse to work. If your pet stops leveling up after some time, that means it's working", "Info", 10)
+			CreateNotification("Glitch can sometimes refuse to work. If your pet stops leveling up after some time, that means it's working", "Info", 4)
 		elseif RebirthVal.Value < 80 then
 
 			if DurabilityVal.Value <= 5000 then
@@ -1614,18 +1614,17 @@ function ToggleGlitchPets(toggle : boolean)
 				return
 			end
 			
-			CreateNotification("You have to set this up for it to work properly (unless you got 80+ rebirths)", "Warning", 7)
+			CreateNotification("You have to set this up for it to work properly (unless you got 80+ rebirths)", "Warning", 4)
 		end
 
-		CreateNotification("Glitching will start after this notification goes away", "Info", 5)
-		task.wait(5)
+		CreateNotification("Glitching will start after this notification goes away", "Info", 3)
+		task.wait(3)
 
 		ToggleFarmDurability(true, true)
 	end
 
 	GlitchPetsCharListener = LocalPlayer.CharacterAdded:Connect(function()
-		CreateNotification("You've died, please reactivate the glitching feature.", "Info", 4)
-		GlitchPetsValInst.Value = false
+		ToggleGlitchPets(ObtainOptValue("01_Glitch Pets"))
 	end)
 end
 
