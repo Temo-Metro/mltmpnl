@@ -1404,7 +1404,7 @@ function CollectChests()
 
 	--// Group chest
 	if LocalPlayer:IsInGroup(874427664) then
-		groupRemote:InvokeServer("groupRewards")
+		GroupRemote:InvokeServer("groupRewards")
 	end
 
 	--// Normal chests
