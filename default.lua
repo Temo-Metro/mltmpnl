@@ -1525,12 +1525,17 @@ function ToggleFarmDurability(toggle : boolean, glitchPets : boolean?)
 		end)
 
 		FarmDurabilityConnection = RunService.Stepped:Connect(function()
+			local DurabilityVal = LocalPlayer:FindFirstChild("Durability", true)
 			local ChosenRock = nil
 			if glitchPets then
 
 				local RebirthsAmount = RebirthVal.Value
 				if RebirthsAmount >= 80 then
-					PetGlitchLoc = DurabilityRocks[2].HRPCFrame
+					if DurabilityVal.Value >= 5000 then
+						PetGlitchLoc = DurabilityRocks[2].HRPCFrame
+					else
+						PetGlitchLoc = DurabilityRocks[10].HRPCFrame	
+					end
 				else
 					PetGlitchLoc = DurabilityRocks[7].HRPCFrame
 				end
@@ -1540,7 +1545,6 @@ function ToggleFarmDurability(toggle : boolean, glitchPets : boolean?)
 			else
 
 				for _,  DurabilityRockTbl in ipairs(DurabilityRocks) do
-					local DurabilityVal = LocalPlayer:FindFirstChild("Durability", true)
 					if DurabilityRockTbl.DurReq <= DurabilityVal.Value then
 						ChosenRock = DurabilityRockTbl.HRPCFrame
 						break
